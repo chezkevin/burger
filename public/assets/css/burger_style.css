@@ -1,0 +1,10 @@
+body{
+  background-color: #FEE861;
+}
+h1,.container{
+  text-align: center;
+}
+img {
+    display: block;
+    margin: auto;
+}
