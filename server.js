@@ -81,6 +81,6 @@ app.get('/index', function (req, res){
 });
 
 // submit burger to database
-$(".submit").on("click", function() {
-  alert("clicked!");
-})
+// $(".submit").on("click", function() {
+//   alert("clicked!");
+// })
