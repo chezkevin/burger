@@ -8,3 +8,15 @@ img {
     display: block;
     margin: auto;
 }
+ol, ul {
+    list-style-type: none;
+}
+.col-xs-6 {
+    width: 225px;
+    background-color: #EEEEEE;
+}
+.btn-block {
+    display: block;
+    width: auto;
+    margin: 0 auto;
+}
