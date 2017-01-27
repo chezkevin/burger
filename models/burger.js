@@ -4,20 +4,46 @@ var orm = require('../config/orm.js');
 // library of functions to be exported
 module.exports = {
     allBurgers   : burgers,
-    create       : create
+    create       : create,
     // singleBurger : singleBurger,
-    // update       : update
+    devour       : devour
 }
 
 // get all the burgers -- an object is returned with uneaten and eaten burgers
 function burgers(cb) {
-    orm.selectAll('burgers', function(data) {
+  var allBurgs = {};
+    uneatenBurgers(function(data) {
+        allBurgs.uneaten = data;
+        eatenBurgers(function(data) {
+            allBurgs.eaten = data;
+            cb(allBurgs);
+        });
+    });
+}
+
+// query the database for uneaten burgers
+function uneatenBurgers(cb) {
+    orm.selectScoped('burgers', 'devoured', 'false', function(data) {
         cb(data);
     });
 }
 
+// query the database for eaten burgers
+function eatenBurgers(cb) {
+    orm.selectScoped('burgers', 'devoured', 'true', function(data) {
+        cb(data);
+    });
+}
+
+// adds a buruger to the database
 function create(newBurg,cb){
   orm.insertOne(newBurg,function(){
     cb();
   });
+}
+
+function devour(burgId,cb){
+  orm.updateOne(burgId,function(){
+    cb();
+  })
 }

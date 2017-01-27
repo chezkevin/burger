@@ -11,9 +11,9 @@ img {
 ol, ul {
     list-style-type: none;
 }
-.col-xs-6 {
-    width: 225px;
+.w-col{
     background-color: #EEEEEE;
+    border: 1px solid #AAAAAA;
 }
 .btn-block {
     display: block;
