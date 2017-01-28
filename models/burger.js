@@ -42,6 +42,7 @@ function create(newBurg,cb){
   });
 }
 
+// devours the burger: updates devoured column to true
 function devour(burgId,cb){
   orm.updateOne(burgId,function(){
     cb();
